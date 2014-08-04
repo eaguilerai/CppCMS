@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=MinGW-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/MinGW-Windows
-CND_ARTIFACT_NAME_Debug=working_with_forms
-CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW-Windows/working_with_forms
+CND_ARTIFACT_NAME_Debug=sessions
+CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW-Windows/sessions
 CND_PACKAGE_DIR_Debug=dist/Debug/MinGW-Windows/package
-CND_PACKAGE_NAME_Debug=workingwithforms.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/MinGW-Windows/package/workingwithforms.tar
+CND_PACKAGE_NAME_Debug=sessions.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/MinGW-Windows/package/sessions.tar
 # Release configuration
 CND_PLATFORM_Release=MinGW-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/MinGW-Windows
-CND_ARTIFACT_NAME_Release=working_with_forms
-CND_ARTIFACT_PATH_Release=dist/Release/MinGW-Windows/working_with_forms
+CND_ARTIFACT_NAME_Release=sessions
+CND_ARTIFACT_PATH_Release=dist/Release/MinGW-Windows/sessions
 CND_PACKAGE_DIR_Release=dist/Release/MinGW-Windows/package
-CND_PACKAGE_NAME_Release=workingwithforms.tar
-CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/workingwithforms.tar
+CND_PACKAGE_NAME_Release=sessions.tar
+CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/sessions.tar
 #
 # include compiler specific variables
 #

@@ -60,52 +60,50 @@ namespace content {
         }
     };
 
-    struct message : public cppcms::base_content
+    struct Message : public cppcms::base_content
     {
         std::string name {};
-        std::string state {};
-        std::string sex {};
+        std::string who {};
         double age {};
         Info_form info {};
     };
 
-    //    Info_form::Info_form()
-    //    {
-    //        name.message("Your name");
-    //        sex.message("Your sex");
-    //        marital.message("Marital status");
-    //        age.message("Your age");
-    //        submit.value("Send");
-    //
-    //        add(name);
-    //        add(sex);
-    //        add(marital);
-    //        add(age);
-    //        add(submit);
-    //
-    //        sex.add("Male", "male");
-    //        sex.add("Female", "female");
-    //        marital.add("Single", "single");
-    //        marital.add("Married", "married");
-    //        marital.add("Divorced", "divorced");
-    //
-    //        name.non_empty();
-    //        age.range(0, 120);
-    //    }
-
-    //    bool Info_form::validate()
-    //    {
-    //        if (!cppcms::form::validate()) {
-    //            return false;
+    //        Info_form::Info_form()
+    //        {
+    //            name.message("Your name");
+    //            sex.message("Your sex");
+    //            marital.message("Marital status");
+    //            age.message("Your age");
+    //            submit.value("Send");
+    //    
+    //            add(name);
+    //            add(sex);
+    //            add(marital);
+    //            add(age);
+    //            add(submit);
+    //    
+    //            sex.add("Male", "male");
+    //            sex.add("Female", "female");
+    //            marital.add("Single", "single");
+    //            marital.add("Married", "married");
+    //            marital.add("Divorced", "divorced");
+    //    
+    //            name.non_empty();
+    //            age.range(0, 120);
     //        }
-    //        else if (marital.selected_id() != "single"
-    //                && age.value() < 18) {
-    //            marital.valid(false);
-    //            return false;
+    //    
+    //        bool Info_form::validate()
+    //        {
+    //            if (!cppcms::form::validate()) {
+    //                return false;
+    //            } else if (marital.selected_id() != "single"
+    //                    && age.value() < 18) {
+    //                marital.valid(false);
+    //                return false;
+    //            }
+    //    
+    //                return true;
     //        }
-    //        
-    //        return true;
-    //    }
 }
 
 #endif	/* CONTENT_H */

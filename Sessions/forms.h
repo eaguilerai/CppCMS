@@ -29,28 +29,43 @@ Forms::Forms(cppcms::service& srv) : cppcms::application(srv)
 
 void Forms::main(std::string /* url */)
 {
-//    response().out() <<
-//            "<html>"
-//            "   <body>"
-//            "       <h1>Hello world!</h1>"
-//            "   </body>"
-//            "</html>";
-    content::message c {};
-    
+    content::Message c {};
+
     if (request().request_method() == "POST") {
         c.info.load(context());
-        
+
         if (c.info.validate()) {
-            c.name = c.info.name.value();
-            c.sex = c.info.sex.selected_id();
-            c.state = c.info.marital.selected_id();
-            c.age = c.info.age.value();
-            
+            session()["name"] = c.info.name.value();
+            session()["sex"] = c.info.sex.selected_id();
+            session()["state"] = c.info.marital.selected_id();
+            session().set("age", c.info.age.value());
             c.info.clear();
         }
     }
-    
-    render("message", c);
+
+    if (session().is_set("name")) {
+        c.name = session()["name"];
+
+        if (session()["sex"] == "male") {
+            c.who = "Mr";
+        }
+        else {
+            if (session()["state"] == "single") {
+                c.who = "Miss";
+            }
+            else {
+                c.who = "Mrs";
+            }
+        }
+        
+        c.age = session().get<double>("age");
+    }
+    else {
+        c.name = "Visitor";
+        c.age = -1.0;
+    }
+
+    render("Message", c);
 }
 
 #endif	/* FORMS_H */
