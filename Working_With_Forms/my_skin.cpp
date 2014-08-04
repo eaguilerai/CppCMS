@@ -30,7 +30,7 @@ namespace my_skin {
 				out()<<cppcms::filters::escape(content.name);
 				#line 9 "message.tmpl"
 				out()<<"</h1>\n"
-					"            <p>You are";
+					"            <p>You are ";
 				#line 9 "message.tmpl"
 				out()<<cppcms::filters::escape(content.sex);
 				#line 9 "message.tmpl"
