@@ -60,7 +60,7 @@ CPPCMS_TMPL_CC=C:\mingw64\x86_64-w64-mingw32\bin\cppcms_tmpl_cc
 
 .build-templates: my_skin.cpp
 
-my_skin.cpp:
+my_skin.cpp: message.tmpl
 	$(PYTHON) $(CPPCMS_TMPL_CC) message.tmpl -o my_skin.cpp
 
 .build-post: .build-impl
