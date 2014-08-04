@@ -3,13 +3,13 @@
 #line 2 "message.tmpl"
 namespace my_skin {
 	#line 3 "message.tmpl"
-	struct message :public cppcms::base_view
+	struct Message :public cppcms::base_view
 	#line 3 "message.tmpl"
 	{
 	#line 3 "message.tmpl"
-		content::message &content;
+		content::Message &content;
 	#line 3 "message.tmpl"
-		message(std::ostream &_s,content::message &_content): cppcms::base_view(_s),content(_content)
+		Message(std::ostream &_s,content::Message &_content): cppcms::base_view(_s),content(_content)
 	#line 3 "message.tmpl"
 		{
 	#line 3 "message.tmpl"
@@ -20,30 +20,26 @@ namespace my_skin {
 			out()<<"\n"
 				"<html>\n"
 				"    <body>\n"
-				"        ";
+				"        <h1>Hello ";
 			#line 7 "message.tmpl"
-			if(!(content.name.empty())) {
-				#line 8 "message.tmpl"
+			out()<<cppcms::filters::escape(content.who);
+			#line 7 "message.tmpl"
+			out()<<" ";
+			#line 7 "message.tmpl"
+			out()<<cppcms::filters::escape(content.name);
+			#line 8 "message.tmpl"
+			out()<<"</h1>\n"
+				"        ";
+			#line 8 "message.tmpl"
+			if(content.age != -1.0) {
+				#line 9 "message.tmpl"
 				out()<<"\n"
-					"            <h1>Hello ";
-				#line 8 "message.tmpl"
-				out()<<cppcms::filters::escape(content.name);
-				#line 9 "message.tmpl"
-				out()<<"</h1>\n"
-					"            <p>You are ";
-				#line 9 "message.tmpl"
-				out()<<cppcms::filters::escape(content.sex);
-				#line 9 "message.tmpl"
-				out()<<", ";
-				#line 9 "message.tmpl"
-				out()<<cppcms::filters::escape(content.state);
-				#line 10 "message.tmpl"
-				out()<<"</p>\n"
 					"            <p>Your age is ";
-				#line 10 "message.tmpl"
+				#line 9 "message.tmpl"
 				out()<<cppcms::filters::escape(content.age);
 				#line 11 "message.tmpl"
 				out()<<"</p>\n"
+					"            <h2>Change details</h2>\n"
 					"        ";
 			#line 11 "message.tmpl"
 			}else{
@@ -72,7 +68,7 @@ namespace my_skin {
 		#line 19 "message.tmpl"
 		} // end of template render
 	#line 20 "message.tmpl"
-	}; // end of class message
+	}; // end of class Message
 #line 21 "message.tmpl"
 } // end of namespace my_skin
 #line 21 "message.tmpl"
@@ -86,7 +82,7 @@ namespace {
 #line 21 "message.tmpl"
    my_generator.name("my_skin");
 #line 21 "message.tmpl"
-   my_generator.add_view<my_skin::message,content::message>("message",true);
+   my_generator.add_view<my_skin::Message,content::Message>("Message",true);
 #line 21 "message.tmpl"
     cppcms::views::pool::instance().add(my_generator);
 #line 21 "message.tmpl"

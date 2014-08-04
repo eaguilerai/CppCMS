@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Working_With_Forms
+PROJECTNAME=Sessions
 
 # Active Configuration
 DEFAULTCONF=Debug
