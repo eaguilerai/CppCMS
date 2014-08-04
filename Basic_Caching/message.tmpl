@@ -1,0 +1,16 @@
+<% c++ #include "content.h" %>
+<% skin my_skin %>
+<% view Message uses content::Message %>
+<% template render() %>
+<html>
+    <body>
+        <h1>Factorial calculator</h1>
+        <h2><%= arg %>! = <%= fact %></h2>
+        <form method="post" action="" >
+        <% form as_p info %>
+        </form>
+    </body>
+</html>
+<% end template %>
+<% end view %>
+<% end skin %>
