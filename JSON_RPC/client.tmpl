@@ -1,0 +1,60 @@
+<% c++ #include "content.h" %>
+<% skin my_skin %>
+<% view Client uses content::None %>
+<% template render() %>
+<html>
+    <head>
+        <script>
+            function call() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("post", "/rpc", true);
+                // Required by JSON-RPC over HTTP
+                xhr.setRequestHeader("Content-Type", "application/json");
+
+                // It is better to use real formatter like JSON.js
+                var x = parseInt(document.getElementById("x"));
+                var y = parseInt(document.getElementById("y"));
+                //var request = '{"method" : "div", "params" : '
+                //    + '[' + x + ',' + y + '], "id" : 1}';
+                var request = '{"method":"div","params":[' + x + ',' + y +'],"id":1}';
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        var res;
+                        
+                        if (xhr.status === 200) {
+                            // Don't call eval in real code. Use some parser.
+                            var result = eval("(" + xhr.responseText + ")");
+
+                            if (result.error == null) {
+                                res = result.result;
+                            }
+                            else {
+                                res = result.error;
+                            }
+                        }
+                        else {
+                            res = "Invalid Status " + xhr.status;
+                        }
+
+                        document.getElementById("result").innerHTML = res;
+                    }
+                }
+
+                xhr.send(request);
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <form onsubmit="return call();">
+            <input id="x" type="text" />
+            <button type="submit">/</button>
+            <input id="y" type="text" /> = 
+            <span id="result"></span>
+        </form>
+    </body>
+</html>
+<% end template %>
+<% end view %>
+<% end skin %>
